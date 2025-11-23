@@ -9,12 +9,9 @@ def solution( head : ListNode ) -> ListNode:
 
     def reverse(node : ListNode , prev : ListNode = None) :
         if not node :
-            print(prev.val)
             return prev
 
         next_node, node.next = node.next, prev
-        if next_node and node:
-            print(next_node.val , node.val)
         return reverse(next_node, node)
 
     return reverse(head)

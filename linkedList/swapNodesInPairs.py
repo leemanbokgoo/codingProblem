@@ -1,5 +1,4 @@
-from binhex import LINELEN
-
+# 17 ) 페어의 노드 스왑
 
 class ListNode:
     def __init__(self, val = 0, next = None ):
@@ -30,7 +29,7 @@ def solution2( node : ListNode) -> ListNode:
 # 책의 풀이 2 : 반복 구조로 스왑
 def solution3( node : ListNode ) -> ListNode:
     root, prev = ListNode(None)
-    prev.next = node.next
+    prev.next = node
 
     while node and node.next:
 
@@ -42,6 +41,8 @@ def solution3( node : ListNode ) -> ListNode:
 
         node = node.next
         prev = prev.next.next
+
+    return root.next
 
 if __name__ == "__main__":
 
