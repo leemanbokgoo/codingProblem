@@ -18,7 +18,6 @@ def solution( node : ListNode ) -> bool:
         node = node.next
 
     while str :
-
         # 배열 길이가 1이 될떄까지 밑의 if문에 걸리지않았다는 것은 펠린 드롬이라는 말.
         # 현재 배열의 길이 1에 해당되는 요소는 펠린드롬의 중앙값인 것. ( 해당 문자열이 홀수인 경우)
         if len(str) <= 1 :
