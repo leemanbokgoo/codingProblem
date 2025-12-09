@@ -14,7 +14,7 @@ def solution( n : int , k : int ):
 
         for i in range(start, n + 1):
             elements.append(i)
-            # i + 1 해야하는 이유는 다음 depth로 넘어가기 위함.
+            # i + 1 해야하는 이유는 중복을 허용하지않음으로 다음 index의 요소를 선택해야하기때문.
             # k -1 : 는 k 만큼의 배열을 만들어야하는데 현재 i를 더해서 자리 하나가 찼으니까 -1
             # elements -> 현재까지 들어온 깊이만큼의 요소를 더한 배열
             dfs( elements , i + 1 , k - 1)

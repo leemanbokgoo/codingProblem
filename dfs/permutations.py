@@ -22,7 +22,7 @@ def solution( numbers: List[int]) -> List[List[int]]:
             # 재귀 함수 선언
             dfs(next_elements)
             # 방금 위에서 넣어준 현재 요소를 다시 삭제해줘야 다음 재귀에 사용가능.
-            # 왜냐하면 [1]ㅇ ㅣ들어있는 상황에서 [1,2] , [1,3] 이런식으로 들어가야하니까 pop을 통해 2는 뺴고 for문에서 3을 넣어주는 것
+            # 왜냐하면 [1]이 들어있는 상황에서 [1,2] , [1,3] 이런식으로 들어가야하니까 pop을 통해 2는 뺴고 for문에서 3을 넣어주는 것
             prev_elements.pop()
 
     dfs(numbers)
