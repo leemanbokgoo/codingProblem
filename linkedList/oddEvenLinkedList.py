@@ -4,6 +4,22 @@ class ListNode:
         self.val = val
         self.next = next
 
+# 도움없이 처음으로 혼자 풀이
+def solution( node : ListNode ):
+
+    oven = node # 홀수
+    odd = node.next # 짝수
+    odd_head = odd
+
+    while node:
+        oven.next , odd.next = oven.next.next = odd.next.next
+        oven, odd = oven.next, odd.next
+
+    oven.next = odd_head
+    return oven
+
+
+# 첫번쨰 풀이
 def solution( head : ListNode ) -> ListNode:
 
     if not head and not head.next:

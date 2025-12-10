@@ -52,6 +52,7 @@ def solution2(l1: ListNode, l2: ListNode) -> ListNode:
 
         head.next = ListNode(val)
         head = head.next
+
     return root.next
 
 def reverse(head: ListNode) -> ListNode:
