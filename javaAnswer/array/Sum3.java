@@ -1,8 +1,10 @@
+package javaAnswer.array;
+
 import java.util.*;
 
 // 09 ) 세수의 합
 // 내 풀이. 투포인터로 3개의 요소를 어떻게 더하는지 모르겠어서 책에서 힌트 참고 함.
-public class Solution {
+public class Sum3 {
 	public List<List<Integer>> threeSum(int[] nums) {
 		List<List<Integer>> results = new ArrayList<>();
 
@@ -47,7 +49,7 @@ public class Solution {
 	}
 
 	public static void main(String[] args) {
-		Solution sol = new Solution();
+		Sum3 sol = new Sum3();
 		int[] nums = {-1, 0, 1, 2, -1, -4};
 
 		List<List<Integer>> result = sol.threeSum(nums);

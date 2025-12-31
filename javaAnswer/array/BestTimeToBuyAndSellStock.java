@@ -1,7 +1,9 @@
+package javaAnswer.array;
+
 // 주식은 한 반향으로만 움직인다. 그럼으로 계속 가면서 가장 낮은 값을 교체해나가며 현재 가장 낮은 값 - 현재 값 = 이익 이다.
 // 이렇게 계산한 이익을 max()를 통해 갱신해나가면 된다.
 
-public class StockSolution {
+public class BestTimeToBuyAndSellStock {
 	public int solution(int[] stocks) {
 		// 가장 낮은 가격을 저장할 변수 (최대값으로 초기화)
 		int mostLowPrice = Integer.MAX_VALUE;
@@ -20,7 +22,7 @@ public class StockSolution {
 	}
 
 	public static void main(String[] args) {
-		StockSolution sol = new StockSolution();
+		BestTimeToBuyAndSellStock sol = new BestTimeToBuyAndSellStock();
 		int[] stocks = {7, 1, 5, 3, 6, 4};
 
 		System.out.println(sol.solution(stocks)); // 결과: 5 (1에 사서 6에 파는 경우)

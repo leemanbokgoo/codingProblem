@@ -1,10 +1,12 @@
+package javaAnswer.array;
+
 import java.util.Arrays;
 // 11 ) 자신을 제외한 배열의 곱
 // 나눗셈을 사용하지 않고 $O(n)$ 시간에 해결해야함.
 
 // 풀이 (책 참고)
 // 왼쪽에서 오른쪽으로 진행하며 곱셈 결과를 쌓고, 다시 오른쪽에서 왼쪽으로 오면서 남은 곱셈을 처리하는 방식으로 풀이해야함.
-public class ProductExceptSelf {
+public class ProductOfArrayExcepctSelf {
 	public int[] solution(int[] nums) {
 		int n = nums.length;
 		int[] output = new int[n];
@@ -29,7 +31,7 @@ public class ProductExceptSelf {
 	}
 
 	public static void main(String[] args) {
-		ProductExceptSelf sol = new ProductExceptSelf();
+		ProductOfArrayExcepctSelf sol = new ProductOfArrayExcepctSelf();
 		int[] nums = {1, 2, 3, 4};
 
 		int[] result = sol.solution(nums);
