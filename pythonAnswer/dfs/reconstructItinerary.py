@@ -3,7 +3,7 @@ import collections
 from typing import List
 
 # 만약 문제에 주어진 모든 항공권을 사용해야한다는 조건이 있으면 오일러 경로를 찾으라는 조건이다.
-# 오일러 경로는 후위 순회로 구현가능. 현재 문제에서는 그런말이 업식ㄴ함.
+# 오일러 경로는 후위 순회로 구현가능. 현재 문제에서는 그런말이 없긴함.
 def solution( tickets : List[List[str]]) -> List[str]:
 
     route = []
