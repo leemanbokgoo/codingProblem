@@ -8,11 +8,12 @@ public class ReverseString {
 	// 배열의 값을 바꿔치기 해서 바꾸려고 했음.
 	public String[] solution(String[] arr) {
 		int len = arr.length;
-		// 파이썬: for i in range(len(arr)//2):
+		// 현재 arr의 길이 반만큼 for문이 돌도록 함.
 		for (int i = 0; i < len / 2; i++) {
-			// 자바는 다중 할당이 안 되므로 temp 변수를 사용
+			// 자바는 다중 할당이 안 되므로 temp 변수를 사용해야한다.
 			String temp = arr[i];
-			// arr[-(i+1)]는 자바에서 arr[len - 1 - i]와 같습니다.
+			// 값을 교환
+			// len - 1 - i : i가 앞에서부터 한 칸씩 갈 때, len - 1 - i는 뒤에서부터 한 칸씩 앞으로 오게 되어 정확히 대칭되는 지점을 가리키게 됩
 			arr[i] = arr[len - 1 - i];
 			arr[len - 1 - i] = temp;
 		}
@@ -20,7 +21,6 @@ public class ReverseString {
 	}
 
 	// // 힌트를 보고 푼 풀이: 슬라이딩 윈도우 투 포인터 (정석적인 방식)
-	// 풀이가 틀린 건 아니지만 for _ in range(half): -> while left < right 가 좀 더 정석적인 슬라이딩 윈도우 풀이 같음.
 	public String[] solutionSlidingWindow(String[] arr) {
 		int left = 0;
 		int right = arr.length - 1;

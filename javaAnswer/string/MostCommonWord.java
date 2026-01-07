@@ -8,7 +8,7 @@ public class MostCommonWord {
 
 	// # 풀이: Counter 없이 HashMap으로 해결
 	public String solution(String paragraph, String[] banned) {
-		// 금지 목록을 검색 효율을 위해 Set으로 변환 (Python의 'if word not in banned')
+		// 금지 목록을 검색 효율을 위해 Set으로 변환
 		Set<String> bannedSet = new HashSet<>(Arrays.asList(banned));
 		Map<String, Integer> wordCountMap = new HashMap<>();
 
@@ -20,6 +20,7 @@ public class MostCommonWord {
 		for (String word : words) {
 			// 빈 문자열이 아니고 금지 단어가 아닌 경우만 카운트
 			if (!word.isEmpty() && !bannedSet.contains(word)) {
+				// getOrDefault : word가 Map에 있으면 그 단어의 현재 개수를 가져온다. word가 Map에 기본값으로 지정한 0을 가져온다
 				wordCountMap.put(word, wordCountMap.getOrDefault(word, 0) + 1);
 			}
 		}

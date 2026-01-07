@@ -8,8 +8,9 @@ public class ValidPalindrome {
 		// 배열(List)로 만들기
 		List<Character> strs = new ArrayList<>();
 
+		// toCharArray() : 문자열(String)을 한 글자씩 쪼개서 문자 배열(char[])로 변환
 		for (char c : s.toCharArray()) {
-			// char.isalnum(): 문자와 숫자인 경우만 필터링
+			// Character.isLetterOrDigit(c) : 문자(한글/영어) 혹은 숫자인지 확인
 			if (Character.isLetterOrDigit(c)) {
 				// 대소문자 구별 안 함으로 소문자로 통일
 				strs.add(Character.toLowerCase(c));
@@ -19,38 +20,9 @@ public class ValidPalindrome {
 		// 중앙값을 기준으로 양 끝을 비교하며 삭제
 		// str에 값이 1개보다 많이 남을 때까지 반복
 		while (strs.size() > 1) {
-			// strs.pop() != strs.pop(0)
-			// 자바 ArrayList의 remove(index)는 삭제된 요소를 반환한다.
+			// 자바 ArrayList의 remove(index)는 삭제된 요소를 반환함.
 			char last = strs.remove(strs.size() - 1);
 			char first = strs.remove(0);
-
-			if (last != first) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	// # 책의 풀이 방식 변환
-	public boolean answer(String s) {
-		List<Character> strs = new ArrayList<>();
-
-		// for char in s:
-		for (char c : s.toCharArray()) {
-			// if char.isalnum():
-			if (Character.isLetterOrDigit(c)) {
-				// strs.append(char.lower())
-				strs.add(Character.toLowerCase(c));
-			}
-		}
-
-		// while len(strs) > 1: (파이썬 코드의 오타 str을 strs로 교정)
-		while (strs.size() > 1) {
-			// if strs.pop() != strs.pop(0):
-			// 자바 remove()는 삭제된 요소를 반환하므로 pop과 동일하게 작동합니다.
-			char last = strs.remove(strs.size() - 1); // pop()
-			char first = strs.remove(0);              // pop(0)
-
 			if (last != first) {
 				return false;
 			}
@@ -59,11 +31,9 @@ public class ValidPalindrome {
 	}
 
 	public boolean solution2(String s) {
-		// 배열(리스트)로 만들기
 		List<Character> strList = new ArrayList<>();
 
 		for (char c : s.toCharArray()) {
-			// 문자와 숫자인 경우만 필터링
 			if (Character.isLetterOrDigit(c)) {
 				// 대소문자 구별 안 하므로 소문자로 통일
 				strList.add(Character.toLowerCase(c));
