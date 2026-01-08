@@ -13,19 +13,20 @@ public class GroupAnagrams {
 
 		for (String word : strs) {
 			// sortedWord = ''.join(sorted(word))
+			// 단어를 사전순으로 정렬함.
 			char[] chars = word.toCharArray();
 			Arrays.sort(chars);
+			// 위에서 정렬한 chars를 가지고 string을 만듬.
 			String sortedWord = new String(chars);
 
-			// anagrams[sortedWord].append(word)
 			// 키가 없으면 새 리스트를 만들고, 있으면 가져와서 단어 추가
+			// .computeIfAbsent(sortedWord, ...) : Map에 sortedWord가 있다면 그 키에 연결된 리스트를 가져오고 없다면
+			// k -> new ArrayList<>() 람다식을 실행해 새 리스트를 하나 만들어서 맵에 넣고 그 만든 리스트를 들고옴.
 			anagrams.computeIfAbsent(sortedWord, k -> new ArrayList<>()).add(word);
 		}
 
-		// return list(anagrams.values())
 		return new ArrayList<>(anagrams.values());
 	}
-
 
 	public static void main(String[] args) {
 		GroupAnagrams app = new GroupAnagrams();
