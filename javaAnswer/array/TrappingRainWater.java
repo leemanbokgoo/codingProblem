@@ -2,12 +2,12 @@ package javaAnswer.array;
 
 import java.util.*;
 // 08) 빗물 트래핑
-
 public class TrappingRainWater {
 
 	// 내 풀이
 	// 코드가 복잡함.
 	public static int solution(int[] nums) {
+
 		if (nums == null || nums.length == 0) return 0;
 
 		int totalRain = 0;
@@ -74,6 +74,7 @@ public class TrappingRainWater {
 	// 내 풀이와는 다르게 while문을 한번만 사용하고 0같은 전처리를 신경 쓰지않아도 된다.
 	// if문을 통해 왼쪽 포인터 이동, 오른쪽 포인터 이동을 할 수 있어 while문 하나로 처리 가능하다.
 	public static int twoPointer(int[] height) {
+
 		if (height == null || height.length == 0) return 0;
 
 		int volume = 0; // 총 물의 양

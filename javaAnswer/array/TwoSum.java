@@ -3,6 +3,8 @@ package javaAnswer.array;
 import java.util.ArrayList;
 import java.util.List;
 
+// 07 ) 두 수의 합
+
 public class TwoSum {
 
 	// 내 풀이
@@ -29,11 +31,13 @@ public class TwoSum {
 		return results;
 	}
 
-	// 책의 풀이
+	// 책 풀이
 	public static int[] solution2(int[] nums, int target) {
 		int left = 0;
 		int right = nums.length - 1;
 
+		// 전체 식을 부정하고 싶을 때는 반드시 전체를 괄호로 감싸고 그 앞에 !를 붙여야한다.
+		// !left == right 하면 !left를 먼저 계산하려고 시도해서 문법오류 발생(left가 숫자임으로)
 		while (!(left == right)) {
 
 			if (nums[left] + nums[right] < target) {
@@ -41,6 +45,7 @@ public class TwoSum {
 			} else if (nums[left] + nums[right] > target) {
 				right -= 1;
 			} else {
+				// 정수형 배열을 만들어서 바로 반환
 				return new int[]{left, right};
 			}
 		}
