@@ -14,6 +14,7 @@ public class ProductOfArrayExcepctSelf {
 		// 1. 왼쪽 곱셈 결과 채우기
 		// sum은 현재 인덱스 이전까지의 모든 요소의 곱
 		int sum = 1;
+
 		for (int i = 0; i < n; i++) {
 			output[i] = sum;
 			sum *= nums[i];

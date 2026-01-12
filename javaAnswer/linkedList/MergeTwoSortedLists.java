@@ -1,22 +1,23 @@
 package javaAnswer.linkedList;
 
+// 14 ) 두 정렬 리스트의 병합
 public class MergeTwoSortedLists {
 
-	// # 14 ) 두 정렬 리스트의 병합
 	// 힌트 받아서 푼 풀이
 	// 외우는 것이 좋을 듯
 	public ListNode solution(ListNode node, ListNode node2) {
 
-		// 파이썬: if (not node) or ( node2 and node.val > node2.val )
+		// node가 null이고 node2의 값이 있을때 node의 값이 node2보다 크다면
+		// node와 node2의 값을 교환한다. 그러면 더 작은 값이 앞으로 가게 된다.
 		if (node == null || (node2 != null && node.val > node2.val)) {
-			// 파이썬의 다중 할당 (node, node2 = node2, node) 재현
 			ListNode temp = node;
 			node = node2;
 			node2 = temp;
 		}
 
 		if (node != null) {
-			// node.next = solution(node.next , node2)
+			// 재귀 호출로 node의 다음 값을 정한다.
+			// node.next값을 넘겨주는 이유는 이미 node의 값은 위에서 더 작은 값으로 정렬해서 정했기 때문임.
 			node.next = solution(node.next, node2);
 		}
 

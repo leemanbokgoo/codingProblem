@@ -14,19 +14,16 @@ public class PalindromeLinkedList {
 			return false;
 		}
 
-		// str = []
 		List<Integer> str = new ArrayList<>();
 
 		// 연결 리스트를 배열로 변경
-		// while node :
 		while (node != null) {
 			str.add(node.val);
 			node = node.next;
 		}
 
-		// while str :
-		while (!str.isEmpty()) {
-			// 배열 길이가 1이 될떄까지 밑의 if문에 걸리지않았다는 것은 펠린 드롬이라는 말.
+		while ( !str.isEmpty() ) {
+			// 배열 길이가 1이 될떄까지 밑의 if문에 걸리지않았다는 것은 펠린드롬이라는 말.
 			// 현재 배열의 길이 1에 해당되는 요소는 펠린드롬의 중앙값인 것. ( 해당 문자열이 홀수인 경우)
 			if (str.size() <= 1) {
 				return true;
@@ -46,9 +43,7 @@ public class PalindromeLinkedList {
 	// 책의 풀이에서는 while len(str) > 1 : 으로 루프를 돌려서 if문을 두번 만들지않음.
 	// if str.pop() != str.pop(0): 이 부분을 데크를 이용해 최적화 할 수 있다.
 	// 동적 배열은 맨 앞 아이템을 가져오기에 적합한 자료형이 아니다. 시간복잡도 O(n)이 발생하기 때문.
-
 	public ListNode stringToListNode(String inputString) {
-		// '1->2->3' 형태의 문자열을 연결 리스트로 변환합니다.
 		if (inputString == null || inputString.isEmpty()) {
 			return null;
 		}

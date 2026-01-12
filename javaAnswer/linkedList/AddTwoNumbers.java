@@ -12,9 +12,10 @@ public class AddTwoNumbers {
 	 */
 	public ListNode solutionWithConversion(ListNode node1, ListNode node2) {
 		String node1Str = "";
-		String node2Str = ""; // 변수명을 node3Str에서 node2Str로 수정
+		String node2Str = "";
 
 		while (node1 != null) {
+			// 문자열 변환
 			node1Str += String.valueOf(node1.val);
 			node1 = node1.next;
 		}
