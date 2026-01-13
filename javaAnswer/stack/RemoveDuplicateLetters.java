@@ -2,14 +2,21 @@ package javaAnswer.stack;
 
 import java.util.*;
 
-// 21 ) 중복 문자 제거
+/**
+ * 21 ) 중복 문자 제거
+ */
+
 public class RemoveDuplicateLetters {
 
 	public String solution(String s) {
 		// counter: 각 문자의 잔여 개수를 저장 (알파벳 소문자 기준 26개)
 		int[] counter = new int[26];
+
+		// char 타입은 산술 연산이 가능함. 여기서 a의 아스키 코드 값은 97으로
+		// 문자 데이터 char을 배열 인덱스( 0 - 25 )로 변환하기 위해 기준점인 a를 빼주는 것이다.
+		// 참고로 이방식은 소문자만 들어올때 유효하다. 대문자까지 처리하려면 Character.toLowerCase(c)를 하거나, 기준을 'A'로 잡는 로직을 추가해야함.
 		for (char c : s.toCharArray()) {
-			counter[c - 'a']++;
+			counter[c - 'a']++; // HashMap<Character, Integer>를 쓰는 것보다 메모리나 속도 면에서 훨씬 효율적
 		}
 
 		// stack: 결과를 담을 스택
