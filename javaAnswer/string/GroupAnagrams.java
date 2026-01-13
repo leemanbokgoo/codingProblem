@@ -2,8 +2,10 @@ package javaAnswer.string;
 
 import java.util.*;
 
-// 05 ) 그룹 에너 그럼
-// 힌트 : 애너그럼은 정렬하면 똑같은 형태가 된다.
+/**
+ * 05 ) 그룹 에너 그럼
+ * 힌트 : 애너그럼은 정렬하면 똑같은 형태가 된다.
+ */
 public class GroupAnagrams {
 
 	public List<List<String>> solution(String[] strs) {

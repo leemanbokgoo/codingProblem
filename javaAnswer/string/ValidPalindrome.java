@@ -1,6 +1,9 @@
 package javaAnswer.string;
 import java.util.*;
-// 01 ) 유효한 펠린드롬
+
+/**
+ *  01 ) 유효한 펠린드롬
+ */
 
 public class ValidPalindrome {
 

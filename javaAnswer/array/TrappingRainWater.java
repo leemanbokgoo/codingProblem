@@ -1,7 +1,11 @@
 package javaAnswer.array;
 
 import java.util.*;
-// 08) 빗물 트래핑
+
+/**
+ * 08) 빗물 트래핑
+ */
+
 public class TrappingRainWater {
 
 	// 내 풀이

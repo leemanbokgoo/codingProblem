@@ -2,8 +2,11 @@ package javaAnswer.array;
 
 import java.util.*;
 
-// 09 ) 세수의 합
-// 내 풀이. 투포인터로 3개의 요소를 어떻게 더하는지 모르겠어서 책에서 힌트 참고 함.
+/**
+ * 09 ) 세수의 합
+ * 내 풀이. 투포인터로 3개의 요소를 어떻게 더하는지 모르겠어서 책에서 힌트 참고 함.
+ */
+
 public class Sum3 {
 	public List<List<Integer>> threeSum(int[] nums) {
 		List<List<Integer>> results = new ArrayList<>();

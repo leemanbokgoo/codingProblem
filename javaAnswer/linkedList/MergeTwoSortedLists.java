@@ -1,6 +1,9 @@
 package javaAnswer.linkedList;
 
-// 14 ) 두 정렬 리스트의 병합
+/**
+ * 14 ) 두 정렬 리스트의 병합
+ */
+
 public class MergeTwoSortedLists {
 
 	// 힌트 받아서 푼 풀이

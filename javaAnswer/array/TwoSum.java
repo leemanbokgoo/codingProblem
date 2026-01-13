@@ -3,7 +3,9 @@ package javaAnswer.array;
 import java.util.ArrayList;
 import java.util.List;
 
-// 07 ) 두 수의 합
+/**
+ * 07 ) 두 수의 합
+ */
 
 public class TwoSum {
 

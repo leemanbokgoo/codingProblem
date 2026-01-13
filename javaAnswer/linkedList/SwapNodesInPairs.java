@@ -1,5 +1,8 @@
 package javaAnswer.linkedList;
-// 17 ) 페어의 노드 스왑
+
+/**
+ * 17 ) 페어의 노드 스왑
+ */
 
 public class SwapNodesInPairs {
 
@@ -7,14 +10,13 @@ public class SwapNodesInPairs {
 	public ListNode solution(ListNode node) {
 		ListNode head = node;
 
-		// while node and node.next :
 		while (node != null && node.next != null) {
-			// node.val, node.next.val = node.next.val , node.val
+			// 페어의 값 교환
 			int temp = node.val;
 			node.val = node.next.val;
 			node.next.val = temp;
 
-			// node = node.next.next
+			// 페어 건너 뛰기
 			node = node.next.next;
 		}
 
@@ -23,13 +25,19 @@ public class SwapNodesInPairs {
 
 	// 책의 풀이 1 : 재귀 구조
 	public ListNode solution2(ListNode node) {
-		// if node and node.next :
+
 		if (node != null && node.next != null) {
+			// 현재 노드의 다음 노드를 변수로 저장.
 			ListNode p = node.next;
-			// node.next = solution2(p.next)
+
+			// p.next는 다음 쌍을 의미한다. 예를 들어 3,4번에 해당하고 return값은 4번 노드가 된다.
+			// node.next에 다음 페어를 연결하는 것.
 			node.next = solution2(p.next);
-			// p.next = node
+			// p는 node.next다. p.next가 node를 가리킴으로써 순서가 swap된다.
 			p.next = node;
+
+			// p는 스왑하기전의 페어 중 오른쪽 값이다.
+			// 해당 값을 반환해서 이전 페어와 연결한다.
 			return p;
 		}
 
@@ -38,27 +46,26 @@ public class SwapNodesInPairs {
 
 	// 책의 풀이 2 : 반복 구조로 스왑
 	public ListNode solution3(ListNode node) {
-		// root, prev = ListNode(None)
+
 		ListNode root = new ListNode(0);
 		ListNode prev = root;
 		prev.next = node;
 
 		while (node != null && node.next != null) {
-			// b = node.next
-			ListNode b = node.next;
 
-			// node.next = b.next
+			// 페어 중 오른쪽
+			ListNode b = node.next;
+			// 현제 페어의 왼쪽에 다음 페어를 연결
 			node.next = b.next;
-			// b.next = node
+			// 페어 swap
 			b.next = node;
 
-			// prev.next = b
+			// 뒤집기가 끝난 앞쪽 페어와 현재 뒤집은 페어의 오른쪽을 연결해준다.
 			prev.next = b;
 
-			// node = node.next
-			node = node.next;
-			// prev = prev.next.next
-			prev = prev.next.next;
+			// 다음 페어를 향해 이동
+			node = node.next; // 페어의 왼쪽임으로 한칸
+			prev = prev.next.next; // 현재 페어를 가리켜야함으로 페어(2칸)을 건너 뛴다.
 		}
 
 		return root.next;

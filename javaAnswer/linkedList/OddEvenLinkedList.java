@@ -1,5 +1,8 @@
 package javaAnswer.linkedList;
 
+/**
+ *  18 ) 홀짝 연결 리스트
+ */
 public class OddEvenLinkedList {
 
 	// # 도움없이 처음으로 혼자 풀이
@@ -8,25 +11,29 @@ public class OddEvenLinkedList {
 
 		ListNode oven = node; // 홀수
 		ListNode odd = node.next; // 짝수
-		ListNode odd_head = odd;
+		ListNode odd_head = odd; // ood의 head 변수 주소 저장
 
-		// 파이썬: while node: 지만 자바에서는 실제 이동하는 포인터인 odd와 odd.next의 null 체크가 필요하다.
+		// 짝수 값이 끝이기때문에 짝수 값과 짝수값의 다음이 존재하는 동안
 		while (odd != null && odd.next != null) {
+			// 두칸씩 건너뛰어야 다음 홀수, 다음 짝수가 나옴.
 			oven.next = oven.next.next;
 			odd.next = odd.next.next;
 
+			// 이동
 			oven = oven.next;
 			odd = odd.next;
 		}
 
+		// 홀수에 짝수 연결
 		oven.next = odd_head;
-		return node; // 전체 리스트를 보려면 시작점인 node를 반환해야 한다.
+		return node; // 전체 리스트를 보려면 시작점인 node를 반환해야함.
 	}
+
 
 	// # 첫번째 풀이
 	public ListNode solution(ListNode head) {
 		if (head == null || head.next == null) {
-			return head; // 파이썬의 return None 대신 head 반환이 안전함.
+			return head;
 		}
 
 		ListNode odd = head;
@@ -46,28 +53,6 @@ public class OddEvenLinkedList {
 		odd.next = even_head;
 
 		// 현재 odd 노드는 홀수번째 가장 마지막 노드를 가리키고 있음으로 head를 반환
-		return head;
-	}
-
-	// # 책의 풀이
-	public ListNode solution2(ListNode head) {
-		if (head == null) {
-			return null;
-		}
-
-		ListNode odd = head; // 홀수
-		ListNode even = head.next; // 짝수
-		ListNode even_head = head.next;
-
-		while (even != null && even.next != null) {
-			odd.next = odd.next.next;
-			even.next = even.next.next;
-
-			odd = odd.next;
-			even = even.next;
-		}
-
-		odd.next = even_head;
 		return head;
 	}
 

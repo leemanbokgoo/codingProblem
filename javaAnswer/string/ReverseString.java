@@ -1,7 +1,10 @@
 package javaAnswer.string;
 
 import java.util.Arrays;
-// 02 ) 문자열 뒤집기
+
+/**
+ *  02 ) 문자열 뒤집기
+ */
 public class ReverseString {
 
 	// // 02 ) 문자열 뒤집기 - 첫 번째 풀이 (인덱스 계산)

@@ -1,9 +1,11 @@
 package javaAnswer.string;
 
 import java.util.*;
-// 03 ) 로그 파일 재정렬
 
-// 힌트 : 람다식을 사용해야함.
+/**
+ * 03 ) 로그 파일 재정렬
+ *  힌트 : 람다식을 사용해야함.
+ */
 public class ReorderLogFiles {
 
 	public List<String> solution(List<String> logFiles) {

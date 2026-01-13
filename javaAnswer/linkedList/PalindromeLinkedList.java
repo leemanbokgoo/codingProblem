@@ -3,7 +3,9 @@ package javaAnswer.linkedList;
 import java.util.ArrayList;
 import java.util.List;
 
-// 13 ) 펠린드롬 연결 리스트
+/**
+ * 13 ) 펠린드롬 연결 리스트
+ */
 
 public class PalindromeLinkedList {
 

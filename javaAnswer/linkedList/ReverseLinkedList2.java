@@ -1,5 +1,8 @@
 package javaAnswer.linkedList;
-// 19 ) 역순 연결 리스트 2
+
+/**
+ *  19 ) 역순 연결 리스트 2
+ */
 
 public class ReverseLinkedList2 {
 
@@ -11,7 +14,6 @@ public class ReverseLinkedList2 {
 		}
 
 		// 값을 셋팅
-		// root = start = ListNode(None)
 		ListNode root = new ListNode(0);
 		root.next = head;
 		ListNode start = root;
@@ -23,20 +25,20 @@ public class ReverseLinkedList2 {
 		}
 
 		// end는 start 다음 노드로 셋팅.
-		// start.next가 end 노드가 되는 이유는 역순으로 뒤집고 나면 이 노드가 가장 뒤에 있어야하기때문에 end노드다.
+		// start.next가 end 노드가 되는 이유는 역순으로 뒤집고 나면 해당 노드가 가장 뒤에 있어야하기때문에 end 노드다.
 		ListNode end = start.next;
 
 		for (int i = 0; i < n - m; i++) {
 			// 현재 m번째 노드를 임시로 저장.
 			ListNode tmp = start.next;
 
-			// m-1자리에 end.next 노드를 넣어준다. (end 뒤의 노드를 뽑아서 start 바로 뒤로 이동)
+			// m 자리에 end.next 노드를 넣어준다. (end 뒤의 노드를 뽑아서 start 바로 뒤로 이동)
 			start.next = end.next;
 
 			// end 뒤에 있는 노드를 뽑았으니, end와 그 다음 노드(end.next.next)를 연결
 			end.next = end.next.next;
 
-			// 새로 앞으로 온 노드(start.next) 뒤에 기존에 앞에 있던 노드(tmp)를 연결
+			// 새로 앞으로 온 노드(start.next) 뒤에 기존의 m번째 노드(tmp)를 연결
 			start.next.next = tmp;
 		}
 

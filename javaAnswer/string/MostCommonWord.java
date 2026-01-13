@@ -2,7 +2,9 @@ package javaAnswer.string;
 
 import java.util.*;
 
-// 04 ) 가장 흔한 단어
+/**
+ * 04 ) 가장 흔한 단어
+ */
 
 public class MostCommonWord {
 
