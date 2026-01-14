@@ -2,12 +2,14 @@ package javaAnswer.hashtable;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 30 ) 중복 문자 없는 가장 긴 부분 문자열
+ */
 public class LongestSubstringWithoutRepeatingCharacters {
 
-	// # 내 풀이 변환
+	// # 내 풀이
 	public int solution(String s) {
-		// stack = {} (여기서는 문자의 위치를 저장하는 맵)
-		Map<Character, Integer> stack = new HashMap<>();
+		Map<Character, Integer> stack = new HashMap<>(); // 문자의 위치를 저장하는 맵
 		int start = 0;
 		int maxLength = 0;
 
@@ -15,15 +17,17 @@ public class LongestSubstringWithoutRepeatingCharacters {
 		for (int i = 0; i < chars.length; i++) {
 			char charItem = chars[i];
 
-			// if stack and start < stack[char]
-			// 자바에서는 해당 키가 있는지 먼저 확인해야 함
+			// 중복 문자가 발생했고, 그 위치가 현재 슬라이딩 윈도우(start 이후) 안에 있다면
 			if (stack.containsKey(charItem) && start <= stack.get(charItem)) {
+				// 윈도우의 시작점을 중복된 문자 바로 다음 칸으로 옮겨서 중복을 제거함
 				start = stack.get(charItem) + 1;
+
+				// 현재 윈도우의 길이(i - start + 1)를 계산하여 최대값 갱신
 			} else {
-				// max_length = max(max_length, i - start + 1)
 				maxLength = Math.max(maxLength, i - start + 1);
 			}
-			// stack[char] = i
+
+			// 현재 문자의 위치를 최신화.
 			stack.put(charItem, i);
 		}
 
@@ -41,14 +45,11 @@ public class LongestSubstringWithoutRepeatingCharacters {
 		for (int index = 0; index < chars.length; index++) {
 			char charItem = chars[index];
 
-			// if char in used and start <= used[char] :
 			if (used.containsKey(charItem) && start <= used.get(charItem)) {
 				start = used.get(charItem) + 1;
 			} else {
 				maxLength = Math.max(maxLength, index - start + 1);
 			}
-
-			// used[char] = index
 			used.put(charItem, index);
 		}
 

@@ -1,12 +1,16 @@
 package javaAnswer.dfs;
 import java.util.*;
-// 33 ) 전화번호 문자 조합
+
+/**
+ * 33 ) 전화번호 문자 조합
+ */
+
 public class LetterCombinationsOfAPhoneNumber {
 
 		public List<String> solution(String numbers) {
 			List<String> results = new ArrayList<>();
 
-			// 파이썬과 동일한 phone 맵 구성
+			// phone 번호를 Map 자료구조로 구현
 			Map<String, String[]> phone = new HashMap<>();
 			phone.put("2", new String[]{"a", "b", "c"});
 			phone.put("3", new String[]{"d", "e", "f"});
@@ -24,22 +28,26 @@ public class LetterCombinationsOfAPhoneNumber {
 			return results;
 		}
 
+		// 참고 : 여기서는 정답을 만들어 가는 변수 path를 String으로 저장함. String은 불변 객체임으로 매번 새로 문자열을 생성하기때문에 백트래킹 과정 없어도
+		// 재귀가 끝나고 현재 단계로 돌아왔을때 원래의 상태를 그대로 유지하고있음. 고로 StringBuilder나 배열을 사용했을때와 달리 (얘네들은 값을 참조함으로) 백트래킹 과정이 필요 없음.
 		private void dfs(int index, String path, String numbers, List<String> results, Map<String, String[]> phone) {
-			// 해당 종료 조건 때문에 for i in range( index, len(numbers)):에서 첫번째 for문 외에 나머지 for의 결과 값은 results안에 append안됨.
-			// 왜냐면 첫번째 for문만 numbers 길이만큼 path를 만들어낼 수 있기때문임.
-			// 그래서 for문이 계속 돌아도 if문 조건때문에 결과값에는 반영 안되며 아래 for문의 range( index, len(numbers)) 조건으로 인해 마지막 단계에서 for문이 못돌아가고 종료됨.
+
+			// 종료 조건
+			// 현재까지 만든 문자열 path의 길이가 입력받은 숫자 numbers의 길이와 같다면 원하는 길이의 조합이 완성된 것이므로 결과 리스트에 추가하고 재귀를 종료한다.
 			if (path.length() == numbers.length()) {
 				results.add(path);
 				return;
 			}
 
-			// index를 통해 depth를 더 들어가야한다. 그렇기때문에 numbers의 길이 만큼 만복되어야함.
-			// 즉, "다음 선택을 어디서부터(해당 문제에선 index) 시작할지" 결정하여 중복되지 않은 경로로 탐색을 확장하는 부분.
-			// for i in range( index, len(numbers)은 일반적인 백트래킹/ DFS 함수의 기본 구조로 핵심 템플릿 부분.
+			// i가 index부터 시작하는 이유는 이미 처리한 숫자는 건너뛰고 다음 숫자로 넘어가기 위함임. 순서를 고정함.
+			// 만약 23이 주어졌다면 2에서 문자를 고르고 3에서 문자를 골라야하기때문에 순서를 지켜야한다. 그렇기때문에 i가 index부터 시작해야함.
 			for (int i = index; i < numbers.length(); i++) {
-				// 해당 인덱스에 numbers[i]의 값에 해당되는 phone문자열을 하나씩 반복문을 돌려서 다음 재귀를 호출해 dfs로 다음 depth로 간다.
+				// 현재 순서에 해당하는 숫자를 가져온다.
 				String digit = String.valueOf(numbers.charAt(i));
+
+				// 숫자에 할당된 문자 ( ex "a", "b", "c")을 하나씩 확인한다.
 				for (String j : phone.get(digit)) {
+					// 현재 문자 j를 기존 경로 path에 추가하고 다음 숫자(i+1)를 처리하기위해 깊이 우선 탐색 DFS를 이어감.
 					dfs(i + 1, path + j, numbers, results, phone);
 				}
 			}
