@@ -11,7 +11,6 @@ public class LongestUnivaluePath {
 	public static int max = 0;
 
 	public int solution( TreeNode node ){
-		if ( node == null ) return 0;
 		dfs(node);
 		return max;
 	}

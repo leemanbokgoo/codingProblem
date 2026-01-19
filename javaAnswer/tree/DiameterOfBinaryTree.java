@@ -8,23 +8,6 @@ import java.util.Queue;
  *
  */
 public class DiameterOfBinaryTree {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	public static int maxDiameter = 0;
 
 	public int solution(TreeNode root){

@@ -10,17 +10,6 @@ import java.util.Queue;
  */
 public class InvertBinaryTree {
 
-
-
-
-
-
-
-
-
-
-
-
 	// 책 풀이 : DFS
 	public TreeNode solution( TreeNode node ){
 
@@ -113,6 +102,8 @@ public class InvertBinaryTree {
 
 		return result;
 	}
+
+
 	public static void main(String[] args){
 
 		Integer[] input = new Integer[]{ 4,2,7,1,3,6,9};
