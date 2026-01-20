@@ -24,7 +24,6 @@ public class BinarySearchTreeToGraterSumTree {
 		sum += node.val;
 		node.val = sum;
 		dfs(node.left);
-
 	}
 
 	public static TreeNode buildNode(Integer[] nodes) {
