@@ -42,7 +42,7 @@ public class CheapestFlightsWithinKStops {
 			int price = currentNode[1]; // 현재 노드의 가격
 			int restCount = currentNode[2]; // 현재 남은 경우 횟수
 
-			// 가지치기? 종료 조건?
+			// 종료 조건?
 			// 현재 노드가 도착지와 같다면 도착지에 도착했다는 뜻임으로 경로를 탐색하며 최종적으로 더해온 price 반환.
 			// 우선순위 큐임으로 k번째 이내에 가장 먼저 도착한 경로가 가장 적은 가격으로 오는 경로다.
 			if ( node == dst ) return price;

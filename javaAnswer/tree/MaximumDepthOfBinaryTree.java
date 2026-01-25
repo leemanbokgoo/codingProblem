@@ -8,7 +8,6 @@ import java.util.Queue;
  *  루트 노드에서 가장 멀리 떨어진 리프 노드까지 몇층인지 묻는 문제.
  */
 public class MaximumDepthOfBinaryTree {
-
 	public int solution_anwser( TreeNode root ){
 
 		if ( root == null ) return 0;
