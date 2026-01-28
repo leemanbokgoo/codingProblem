@@ -41,6 +41,7 @@ public class TwoSum {
 
 			if (sum == target) {
 				return new int[]{left + 1, right + 1};
+
 			} else if (sum < target) {
 				// 합이 작으면 더 큰 숫자가 필요하므로 왼쪽 포인터를 오른쪽으로
 				left++;
