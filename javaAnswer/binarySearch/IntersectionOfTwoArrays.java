@@ -1,9 +1,7 @@
 package javaAnswer.binarySearch;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 
 /**
  *  67 ) 두 배열의 교집합
