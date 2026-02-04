@@ -18,7 +18,7 @@ public class MinimumWindowSubstring {
 		// 2. 필요한 변수 세팅
 		int left = 0, right = 0; // 윈도우의 양 끝 포인터
 		int minLen = Integer.MAX_VALUE;
-		int startIdx = 0; // 가장 짧은 구간의 시작 지점을 저장하는 변수
+		int startIdx = 0; // 가장 짧은 구간의 시작 지점을 저장하는 변수. 이걸 알아야 문자를 자를 수 있음.
 		int requiredCount = t.length(); // 채워야 할 총 문자의 개수
 
 		// 3. 오른쪽 포인터(right)를 하나씩 밀면서 확장
@@ -26,7 +26,7 @@ public class MinimumWindowSubstring {
 			char rightChar = s.charAt(right);
 
 			// 현재 문자가 t에 필요한 문자였다면, 요구 수치(requiredCount)를 줄임
-			// targetMap[rightChar] > 0 이여야 현재 필요한 문자인 것. (targetMap[rightChar] 가 0 이라면 필요하지않은 상태
+			// targetMap[rightChar] > 0 이여야 현재 필요한 문자인 것.
 			if (targetMap[rightChar] > 0) {
 				requiredCount--;
 			}
